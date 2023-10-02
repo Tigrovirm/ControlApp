@@ -1,0 +1,17 @@
+{% extends "ControlApp/base.html" %}
+
+{% block content %}
+<div>
+    <h1>{{ post.title }}</h1>
+    <div>
+        <p>{{ post.content}}</p>
+    </div>
+    <div>
+        <a href="{% url 'ControlApp:edit_post' post.id %}">Изменить Пост</a>
+        <form action="{% url 'ControlApp:delete_post' post.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Удалить пост</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "ControlApp/base.html" %}
+
+{% block content %}
+<div>
+    <h2>Список постов</h2>
+    <div>
+        {% for post in posts %}
+        <div>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content}}</p>
+            <a href="{% url 'ControlApp:detail_post' post.id %}">Подробнее:</a>
+        </div>
+        {% empty %}
+        <p>Постов пока нет</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
